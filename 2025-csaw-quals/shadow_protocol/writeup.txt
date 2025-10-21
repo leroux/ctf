@@ -1,0 +1,31 @@
+[SPACE] A cosmic signal has been scrambled using the Shadow Protocol at time: 1757819820.
+[SPACE] Encrypted message:
+1352BB1670893222164EB503728F29
+
+nc key
+6437048027107172720
+
+python3 - <<'PY'
+K=int("6437048027107172720",0)
+C="1352BB1670893222164EB503728F29".replace(" ","").strip()
+cipher=bytes.fromhex(C)
+key=[(K>>(8*i))&0xff for i in range(8)]
+pt=bytes(c ^ key[i%8] for i,c in enumerate(cipher))
+print(pt.decode("utf-8",errors="replace"))
+PY
+
+In Ghidra/IDA, find the global sbox symbol or the cross-referenced 256-byte array in .rodata, dump it as bytes, and format as space-separated hex.
+Or with objdump/readelf/xxd, search the .rodata for a contiguous 256-byte table referenced near shadow_protocol.
+
+
+patch time() to return whatever we want
+run debug server
+run shadow_protocol.exe with patch
+get key from debug server
+use key to decrypt
+
+--
+
+SOLUTION:
+- solve.py solves by reimplementing the key generation
+- solve_faketime.py solves by using faketime to patch what time() returns and runs shadow_protocol binary to generate key
