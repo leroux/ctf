@@ -1,0 +1,21 @@
+S0JSSFU2VE9NRllTQVJUSU41VEdPNVRITkJUWE1ZVEI=
+
+=> base64 decode
+
+KBRHU6TOMFYSARTIN5TGO5THNBTXMYTB
+
+=> ROT13
+
+Command Substitution
+
+$(cat flag.txt)
+
+flag.txt:
+csawctf{}
+
+exists -> 'footage'
+exists -> 'flag'
+
+$(echo)
+->
+""
